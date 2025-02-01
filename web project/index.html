@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- title -->
+        <title>Mythsy</title>
+        <link rel="shortcut icon" href="favicon1.png" type="image/x-icon">
+
+        <!-- all css here -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- header-section-start -->
+        <header>
+            <div class="container">
+                <!-- logo -->
+                <div class="col-25">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/logo.png" alt="logo">
+                        </a>    
+                    </div>
+                </div>
+                <!-- main-menu -->
+                <div class="col-75">
+                    <div class="Main-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li class="dropdown">
+                                <a href="#">Occations</a>
+                                <!-- Dropdown menu -->
+                                <ul class="dropdown-menu">
+                                  <li ><a href="#" onclick="scrollToCategory()">Birthday </a></li>
+                                  <li><a href="#" onclick="scrollToCategory()">Wedding </a></li>
+                                  <li><a href="#" onclick="scrollToCategory()">Chrismas </a></li>
+                                  <li><a href="#" onclick="scrollToCategory()">Eid </a></li>
+                                </ul>
+                            
+                            </li>
+                            <li class="dropdown">
+                                <a href="#">Pages</a>
+                                <!-- Dropdown menu -->
+                                <ul class="dropdown-menu">
+                                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f">  Facebook</i> </a></li>
+                                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram">  Instagram</i> </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Shop</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+                            <li ><a href="#"><i id="search-icon" class="fas fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-bars"></i></a></li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+        </header>
+
+        <div id="search-bar" class="search-bar">
+          <input type="text" placeholder="Search...">
+        </div>
+
+        <section class="banner">
+          <div class="overlay">
+            <div class="container">
+                <div class="banner-content">
+                    <h2>Gift Collection 2024</h2>
+                    <p>Discover unique and personalized gifts for every occasion.</p>
+                    <div class="btn">
+                        <button class="btn-banner" onclick="scrollToCategory()">Shop Now</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <section class="gift-categories" id="gift-categories">
+          <div class="container">
+            <h2>GIFT BY CATEGORIES</h2>
+            <div class="categories-grid">
+              <div class="category-card" onclick="openModal('modal-cake')">
+                <img src="images/gift4.jpg" alt="Cake">
+                <h3>Cakes</h3>
+              </div>
+              <div class="category-card" onclick="openModal('modal-watches')">
+                <img src="images/gift9.jpg" alt="Watches">
+                <h3>Watches</h3>
+              </div>
+              <div class="category-card" onclick="openModal('modal-flowers')">
+                <img src="images/gift10.jpg" alt="Flowers">
+                <h3>Flowers</h3>
+              </div>
+              <div class="category-card" onclick="openModal('modal-plushies')">
+                <img src="images/gift5.jpg" alt="Plushies">
+                <h3>Plushies</h3>
+              </div>
+              <div class="category-card" onclick="openModal('modal-chocolate')">
+                <img src="images/gift8.jpg" alt="Chocolate">
+                <h3>Chocolate</h3>
+              </div>
+              <div class="category-card" onclick="openModal('modal-perfume')">
+                <img src="images/gift6.jpg" alt="Perfume">
+                <h3>Perfume</h3>
+              </div>
+              <div class="category-card" onclick="openModal('modal-home-decor')">
+                <img src="images/gift3.jpg" alt="Home Decor">
+                <h3>Home Decor</h3>
+              </div>
+              
+            </div>
+
+
+          <span id="cart-count">0</span>
+          <!-- Cake Modal -->
+          <div id="modal-cake" class="modal">
+            <div class="modal-content">
+              <span class="close-modal" onclick="closeModal('modal-cake')">&times;</span>
+              <h2>Choose Your Cake</h2>
+        
+              <div class="product-list">
+                <!-- Product 1 -->
+                <div class="product">
+                  <img src="images/cake3.jpg" alt="Cake 1">
+                  <p>Chocolate Cake</p>
+                  <div class="product-options">
+                    <div class="amount">
+                      <label for="amount">Amount:</label>
+                      <button class="decrement" onclick="updateAmount('amount1', -1)">-</button>
+                      <span id="amount1" class="amount-value">0</span>
+                      <button class="increment" onclick="updateAmount('amount1', 1)">+</button>
+                    </div>
+        
+                    <div class="weight">
+                      <label for="gram">Weight (g):</label>
+                      <select id="gram1" name="gram1">
+                        <option value="0">Select Weight</option>
+                        <option value="500">500g</option>
+                        <option value="800">800g</option>
+                        <option value="1000">1000g</option>
+                        <option value="1200">1200g</option>
+                      </select>
+                    </div>
+      
+                    <button class="add-to-cart" onclick="addToCart('Chocolate Cake', 'amount1', 'gram1')">Add to Cart</button>
+
+                  </div>
+                </div>
+        
+                <!-- Product 2 -->
+                <div class="product">
+                  <img src="images/cake1.jpg" alt="Cake 2">
+                  <p>Vanilla Cake</p>
+                  <div class="product-options">
+                    <div class="amount">
+                      <label for="amount">Amount:</label>
+                      <button class="decrement" onclick="updateAmount('amount2', -1)">-</button>
+                      <span id="amount2" class="amount-value">0</span>
+                      <button class="increment" onclick="updateAmount('amount2', 1)">+</button>
+                    </div>
+        
+                    <div class="weight">
+                      <label for="gram">Weight (g):</label>
+                      <select id="gram2" name="gram2">
+                        <option value="0">Select Weight</option>
+                        <option value="500">500g</option>
+                        <option value="800">800g</option>
+                        <option value="1000">1000g</option>
+                        <option value="1200">1200g</option>
+                      </select>
+                    </div>
+        
+                    <button class="add-to-cart" onclick="addToCart('Vanilla Cake', 'amount2', 'gram2')">Add to Cart</button>
+                  </div>
+                </div>
+        
+                <!-- Product 3 -->
+                <div class="product">
+                  <img src="images/cake5.jpg" alt="Cake 3">
+                  <p>Red Velvet Cake</p>
+                  <div class="product-options">
+                    <div class="amount">
+                      <label for="amount">Amount:</label>
+                      <button class="decrement" onclick="updateAmount('amount3', -1)">-</button>
+                      <span id="amount3" class="amount-value">0</span>
+                      <button class="increment" onclick="updateAmount('amount3', 1)">+</button>
+                    </div>
+        
+                    <div class="weight">
+                      <label for="gram">Weight (g):</label>
+                      <select id="gram3" name="gram3">
+                        <option value="0">Select Weight</option>
+                        <option value="500">500g</option>
+                        <option value="800">800g</option>
+                        <option value="1000">1000g</option>
+                        <option value="1200">1200g</option>
+                      </select>
+                    </div>
+        
+                    <button class="add-to-cart" onclick="addToCart('Strawberry Cake', 'amount3', 'gram3')">Add to Cart</button>
+                  </div>
+                </div>
+        
+                <!-- Product 4 -->
+                <div class="product">
+                  <img src="images/cake4.jpg" alt="Cake 4">
+                  <p>Strawberry Cake</p>
+                  <div class="product-options">
+                    <div class="amount">
+                      <label for="amount">Amount:</label>
+                      <button class="decrement" onclick="updateAmount('amount4', -1)">-</button>
+                      <span id="amount4" class="amount-value">0</span>
+                      <button class="increment" onclick="updateAmount('amount4', 1)">+</button>
+                    </div>
+        
+                    <div class="weight">
+                      <label for="gram">Weight (g):</label>
+                      <select id="gram4" name="gram4">
+                        <option value="0">Select Weight</option>
+                        <option value="500">500g</option>
+                        <option value="800">800g</option>
+                        <option value="1000">1000g</option>
+                        <option value="1200">1200g</option>
+                      </select>
+                    </div>
+        
+                    <button class="add-to-cart" onclick="addToCart('Red Velvet Cake', 'amount4', 'gram4')">Add to Cart</button>
+                  </div>
+                </div>
+        
+                <!-- Product 5 -->
+                <div class="product">
+                  <img src="images/cake2.jpg" alt="Cake 5">
+                  <p>Lemon Cake</p>
+                  <div class="product-options">
+                    <div class="amount">
+                      <label for="amount">Amount:</label>
+                      <button class="decrement" onclick="updateAmount('amount5', -1)">-</button>
+                      <span id="amount5" class="amount-value">0</span>
+                      <button class="increment" onclick="updateAmount('amount5', 1)">+</button>
+                    </div>
+        
+                    <div class="weight">
+                      <label for="gram">Weight (g):</label>
+                      <select id="gram5" name="gram5">
+                        <option value="0">Select Weight</option>
+                        <option value="500">500g</option>
+                        <option value="800">800g</option>
+                        <option value="1000">1000g</option>
+                        <option value="1200">1200g</option>
+                      </select>
+                    </div>
+        
+                    <button class="add-to-cart" onclick="addToCart('Lemon Cake', 'amount5', 'gram5')">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Watches Modal -->
+          <div id="modal-watches" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modal-watches')">&times;</span>
+                <h2>Choose Your Cake</h2>
+                <div class="product-list">
+
+                    <!-- Watch Product 1 -->
+                    <div class="product">
+                        <img src="images/watch1.jpg" alt="Watch 1">
+                        <p>Brown Leather Watch</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-watch1', -1)">-</button>
+                                <span id="amount-watch1" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-watch1', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Watch 1', 'amount-watch1')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Watch Product 2 -->
+                    <div class="product">
+                        <img src="images/watch3.jpg" alt="Watch 2">
+                        <p>Women's 3D Bee Watch</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-watch2', -1)">-</button>
+                                <span id="amount-watch2" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-watch2', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Watch 2', 'amount-watch2')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Watch Product 3 -->
+                    <div class="product">
+                      <img src="images/watch2.jpg" alt="Watch 3">
+                      <p>Smart Watch</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-watch3', -1)">-</button>
+                              <span id="amount-watch3" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-watch3', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Watch 3', 'amount-watch3')">Add to Cart</button>
+                      </div>
+                  </div>
+
+                  <!-- Watch Product 4 -->
+                  <div class="product">
+                        <img src="images/watch4.jpg" alt="Watch 4">
+                        <p>Pkeoh Watch</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-watch4', -1)">-</button>
+                                <span id="amount-watch4" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-watch4', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Watch 4', 'amount-watch4')">Add to Cart</button>
+                        </div>
+                  </div>
+
+                  <!-- Watch Product 5 -->
+                  <div class="product">
+                      <img src="images/watch5.jpeg" alt="Watch 5">
+                      <p>Wolf Eastern Watch</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-watch5', -1)">-</button>
+                              <span id="amount-watch5" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-watch5', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Watch 5', 'amount-watch5')">Add to Cart</button>
+                      </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+          <!-- Modal for Flowers -->
+          <div id="modal-flowers" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modal-flowers')">&times;</span>
+                <h2>Choose Your Bouquet</h2>
+        
+                <div class="product-list">
+                    <!-- Flower Product 1 -->
+                    <div class="product">
+                        <img src="images/flower1.jpg" alt="Flower 1">
+                        <p>White Lily</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-flower1', -1)">-</button>
+                                <span id="amount-flower1" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-flower1', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Flower 1', 'amount-flower1')">Add to Cart</button>
+                        </div>
+                    </div>
+        
+                    <!-- Flower Product 2 -->
+                    <div class="product">
+                        <img src="images/flower2.jpg" alt="Flower 2">
+                        <p>Sunflower</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-flower2', -1)">-</button>
+                                <span id="amount-flower2" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-flower2', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Flower 2', 'amount-flower2')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Flower Product 3 -->
+                    <div class="product">
+                      <img src="images/flower3.jpg" alt="Flower 3">
+                      <p>White Peony</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-flower3', -1)">-</button>
+                              <span id="amount-flower3" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-flower3', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Flower 3', 'amount-flower3')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Flower Product 4 -->
+                    <div class="product">
+                      <img src="images/flower4.jpg" alt="Flower 4">
+                      <p>Rose</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-flower4', -1)">-</button>
+                              <span id="amount-flower4" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-flower4', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Flower 4', 'amount-flower4')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Flower Product 5 -->
+                    <div class="product">
+                      <img src="images/flower5.jpg" alt="Flower 5">
+                      <p>Tulip</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-flower5', -1)">-</button>
+                              <span id="amount-flower5" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-flower5', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Flower 5', 'amount-flower5')">Add to Cart</button>
+                      </div>
+                  </div> 
+                </div>
+            </div>
+          </div>
+        
+
+          <!-- Modal for Plushies -->
+          <div id="modal-plushies" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modal-plushies')">&times;</span>
+                <h2>Choose Your Plushie</h2>
+        
+                <div class="product-list">
+                    <!-- Plushie Product 1 -->
+                    <div class="product">
+                        <img src="images/plushie1.jpg" alt="Plushie 1">
+                        <p>Squishmallow</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-plushie1', -1)">-</button>
+                                <span id="amount-plushie1" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-plushie1', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Plushie 1', 'amount-plushie1')">Add to Cart</button>
+                        </div>
+                    </div>
+        
+                    <!-- Plushie Product 2 -->
+                    <div class="product">
+                        <img src="images/plushie2.jpg" alt="Plushie 2">
+                        <p>Kawaii Mushroom Squish</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-plushie2', -1)">-</button>
+                                <span id="amount-plushie2" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-plushie2', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Plushie 2', 'amount-plushie2')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Plushie Product 3 -->
+                    <div class="product">
+                      <img src="images/plushie3.jpg" alt="Plushie 3">
+                      <p>Carrot Rabbit Plush</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-plushie3', -1)">-</button>
+                              <span id="amount-plushie3" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-plushie3', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Plushie 3', 'amount-plushie3')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Plushie Product 4 -->
+                    <div class="product">
+                      <img src="images/plushie4.jpg" alt="Plushie 4">
+                      <p>Teddy Loveellen</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-plushie4', -1)">-</button>
+                              <span id="amount-plushie4" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-plushie4', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Plushie 4', 'amount-plushie4')">Add to Cart</button>
+                      </div>
+                   </div>
+
+                   <!-- Plushie Product 5 -->
+                   <div class="product">
+                    <img src="images/plushie5.jpg" alt="Plushie 5">
+                    <p>Love Paw Sheep Squish</p>
+                    <div class="product-options">
+                        <div class="amount">
+                            <label for="amount">Amount:</label>
+                            <button class="decrement" onclick="updateAmount('amount-plushie5', -1)">-</button>
+                            <span id="amount-plushie5" class="amount-value">0</span>
+                            <button class="increment" onclick="updateAmount('amount-plushie5', 1)">+</button>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('Plushie 5', 'amount-plushie5')">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        
+
+          <!-- Modal for Chocolate -->
+          <div id="modal-chocolate" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modal-chocolate')">&times;</span>
+                <h2>Choose Your Chocolate</h2>
+
+                <div class="product-list">
+                    <!-- Chocolate Product 1 -->
+                    <div class="product">
+                        <img src="images/choco1.jpg" alt="Chocolate 1">
+                        <p>Milk Chocolate</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-chocolate1', -1)">-</button>
+                                <span id="amount-chocolate1" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-chocolate1', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Chocolate 1', 'amount-chocolate1')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Chocolate Product 2 -->
+                    <div class="product">
+                        <img src="images/choco2.jpg" alt="Chocolate 2">
+                        <p>Ferrero Rocher Chocolate</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-chocolate2', -1)">-</button>
+                                <span id="amount-chocolate2" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-chocolate2', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Chocolate 2', 'amount-chocolate2')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Chocolate Product 3 -->
+                    <div class="product">
+                      <img src="images/choco3.jpg" alt="Chocolate 3">
+                      <p>Kisses Chocolate</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-chocolate3', -1)">-</button>
+                              <span id="amount-chocolate3" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-chocolate3', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Chocolate 3', 'amount-chocolate3')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!--  Chocolate Product 4 -->
+                    <div class="product">
+                      <img src="images/choco4.jpg" alt="Chocolate 4">
+                      <p>Cappuccino Chocolate</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-chocolate4', -1)">-</button>
+                              <span id="amount-chocolate4" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-chocolate4', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Chocolate 4', 'amount-chocolate4')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Chocolate Product 5 -->
+                    <div class="product">
+                      <img src="images/choco5.jpg" alt="Chocolate 5">
+                      <p>Dark Chocolate</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-chocolate5', -1)">-</button>
+                              <span id="amount-chocolate5" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-chocolate5', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Chocolate 5', 'amount-chocolate5')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+
+          <!-- Modal for Perfume -->
+          <div id="modal-perfume" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modal-perfume')">&times;</span>
+                <h2>Choose Your Perfume</h2>
+
+                <div class="product-list">
+                    <!-- Perfume Product 1 -->
+                    <div class="product">
+                        <img src="images/perfume1.jpg" alt="Perfume 1">
+                        <p>Chanel Coco Perfume</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-perfume1', -1)">-</button>
+                                <span id="amount-perfume1" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-perfume1', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Perfume 1', 'amount-perfume1')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Perfume Product 2 -->
+                    <div class="product">
+                        <img src="images/perfume2.jpg" alt="Perfume 2">
+                        <p>Christian Dior Perfume</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-perfume2', -1)">-</button>
+                                <span id="amount-perfume2" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-perfume2', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Perfume 2', 'amount-perfume2')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Perfume Product 3 -->
+                    <div class="product">
+                      <img src="images/perfume3.jpg" alt="Perfume 3">
+                      <p>Flower Story Women’s Perfume</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-perfume3', -1)">-</button>
+                              <span id="amount-perfume3" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-perfume3', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Perfume 3', 'amount-perfume3')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Perfume Product 4 -->
+                    <div class="product">
+                      <img src="images/perfume4.jpg" alt="Perfume 4">
+                      <p>Maxidaint Perfume</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-perfume4', -1)">-</button>
+                              <span id="amount-perfume4" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-perfume4', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Perfume 4', 'amount-perfume4')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Perfume Product 5 -->
+                    <div class="product">
+                      <img src="images/perfume5.jpg" alt="Perfume 5">
+                      <p>Victoria’s Secret Perfume</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-perfume5', -1)">-</button>
+                              <span id="amount-perfume5" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-perfume5', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Perfume 5', 'amount-perfume5')">Add to Cart</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+          <!-- Modal for Home Decor -->
+          <div id="modal-home-decor" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modal-home-decor')">&times;</span>
+                <h2>Choose Your Decor</h2>
+
+                <div class="product-list">
+                    <!-- Home Decor Product 1 -->
+                    <div class="product">
+                        <img src="images/deco1.jpg" alt="Home Decor 1">
+                        <p>Scented Candles</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-home-decor1', -1)">-</button>
+                                <span id="amount-home-decor1" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-home-decor1', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Decor 1', 'amount-home-decor1')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Home Decor Product 2 -->
+                    <div class="product">
+                        <img src="images/deco2.jpg" alt="Home Decor 2">
+                        <p>LED Table Lamp</p>
+                        <div class="product-options">
+                            <div class="amount">
+                                <label for="amount">Amount:</label>
+                                <button class="decrement" onclick="updateAmount('amount-home-decor2', -1)">-</button>
+                                <span id="amount-home-decor2" class="amount-value">0</span>
+                                <button class="increment" onclick="updateAmount('amount-home-decor2', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart('Decor 2', 'amount-home-decor2')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Home Decor Product 3 -->
+                    <div class="product">
+                      <img src="images/deco3.jpg" alt="Home Decor 3">
+                      <p>Table Decor</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-home-decor3', -1)">-</button>
+                              <span id="amount-home-decor3" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-home-decor3', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Decor 3', 'amount-home-decor3')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Home Decor Product 4 -->
+                    <div class="product">
+                      <img src="images/deco4.jpg" alt="Home Decor 4">
+                      <p>Wall Shelves</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-home-decor4', -1)">-</button>
+                              <span id="amount-home-decor4" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-home-decor4', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Decor 4', 'amount-home-decor4')">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <!-- Home Decor Product 5 -->
+                    <div class="product">
+                      <img src="images/deco5.jpg" alt="Home Decor 5">
+                      <p>Wall Decor</p>
+                      <div class="product-options">
+                          <div class="amount">
+                              <label for="amount">Amount:</label>
+                              <button class="decrement" onclick="updateAmount('amount-home-decor5', -1)">-</button>
+                              <span id="amount-home-decor5" class="amount-value">0</span>
+                              <button class="increment" onclick="updateAmount('amount-home-decor5', 1)">+</button>
+                          </div>
+                          <button class="add-to-cart" onclick="addToCart('Decor 5', 'amount-home-decor5')">Add to Cart</button>
+                      </div>
+                    </div> 
+                </div>
+            </div>
+          </div>
+
+          
+
+
+
+
+        </section>
+        
+        <div id="cart-modal" class="modal cart-modal">
+          <div class="cart-content">
+              <span class="close-modal" onclick="closeModal('cart-modal')">&times;</span>
+              <h3>Your Cart</h3>
+              
+              <!-- Cart Items Section -->
+              <div id="cart-items">
+                  <!-- Dynamic cart items will be added here -->
+              </div>
+              
+              <!-- Cart Footer Section -->
+              <div class="cart-footer">
+                  <div class="cart-total">
+                      <p id="cart-total-price">Total Price:</p> <!-- Total price dynamically updated -->
+                  </div>
+                  <div class="cart-actions">
+                      <button onclick="checkout()">Checkout</button>
+                      <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        
+        <footer class="footer">
+          <div class="footer-content">
+              <p>2024 MYTHSY, All Rights Reserved</p>
+              <p>
+                  CALL +44 300 303 0266 | FOLLOW US 
+              </p>
+              <li>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-google-plus-g"></i></a>
+              </li>
+          </div>
+        </footer>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
